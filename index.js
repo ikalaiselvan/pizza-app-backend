@@ -28,7 +28,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://pizza-app-frontend.netlify.app/",
     credentials: true,
   })
 );
