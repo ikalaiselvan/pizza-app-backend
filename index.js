@@ -31,8 +31,10 @@ app.use(
     origin: "https://pizza-app-frontend.netlify.app",
     // origin: "http://localhost:3000",
     credentials: true,
+    optionsSuccessStatus: 200,
   })
 );
+
 
 app.get("/", function (request, response) {
   console.log("index cookies : ", request.cookies);
