@@ -3,13 +3,13 @@ import { client } from "../index.js";
 const router = express.Router();
 
 // get all pizzas and find by query: 
-router.get("/", async function (request, response) {
+router.get("/all-pizzas", async function (request, response) {
   const pizzas = await client
     .db("b39wd")
     .collection("pizza-app")
     .find(request.query)
     .toArray();
-  response.send(pizzas);
+  response.status(200).send(pizzas);
 });
 
 // get all pizza names : 

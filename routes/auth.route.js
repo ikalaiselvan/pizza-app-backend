@@ -71,10 +71,12 @@ router.post("/signin", async function (request, response) {
             }); //seting token into cookie
             return response
               .status(201)
-              .send({ message: "User signed in successfully..." });
+              .send({id: existingUser._id, message: "User signed in successfully..." });
+          }else{
+            return response.status(401).send({message: "Invalid credentials ..."})
           }
         }
-        return response.send({ message: "User doesn't exist..." });
+        return response.status(401).send({ message: "User doesn't exist..." });
     }catch(error){
         res
           .status(500)
@@ -133,7 +135,7 @@ router.post("/forgotPassword", async function (request, response) {
         createdAt: new Date(),
       });
 
-    const link = `http://localhost:3000/passwordReset?token=${newToken}&id=${existingUser._id.toString()}`;
+    const link = `https://pizza-app-frontend.netlify.app/passwordReset?token=${newToken}&id=${existingUser._id.toString()}`;
 
     console.log(existingUser.email);
     await sendEmail(existingUser.email, "Password Reset Link : ", {

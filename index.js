@@ -29,6 +29,7 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: "https://pizza-app-frontend.netlify.app",
+    // origin: "http://localhost:3000",
     credentials: true,
   })
 );
@@ -38,8 +39,9 @@ app.get("/", function (request, response) {
   response.send("🙋‍♂️, 🌏 🎊✨🤩");
 });
 
+
 app.use("/auth", authRouter);
-app.use("/pizza", pizzaRouter);
+app.use("/pizza",isAuth, pizzaRouter);
 
 
 app.listen(PORT, () => console.log(`The server started in: ${PORT} ✨✨`));
