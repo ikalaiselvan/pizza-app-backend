@@ -43,7 +43,8 @@ app.get("/", function (request, response) {
 
 
 app.use("/auth", authRouter);
-app.use("/pizza",isAuth, pizzaRouter);
+// app.use("/pizza",isAuth, pizzaRouter);
+app.use("/pizza", pizzaRouter);
 
 
 app.listen(PORT, () => console.log(`The server started in: ${PORT} ✨✨`));
