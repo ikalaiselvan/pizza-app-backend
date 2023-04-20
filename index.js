@@ -27,13 +27,17 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(
-  cors({
-    origin: "https://pizza-app-frontend.netlify.app",
-    // origin: "http://localhost:3000",
-    credentials: true,
-    optionsSuccessStatus: 200,
-  })
+  cors()
 );
+
+// app.use(
+//   cors({
+//     origin: "https://pizza-app-frontend.netlify.app",
+//     // origin: "http://localhost:3000",
+//     credentials: true,
+//     optionsSuccessStatus: 200,
+//   })
+// );
 
 
 app.get("/", function (request, response) {
